@@ -1,0 +1,15 @@
+-----POO TEMA 1-----
+MODELAREA EROILOR:
+    Pentru modelarea claselor de campioni am folosit o clasa parinte, abstracta, numita Hero. In aceasta am incapsulat toate caracteristicile comune claselor mostenitoare(viata, experienta, nivel, pozitia pe harta, etc.), si am implementat metodele comune(primeste damage, level up, primeste xp, primeste damaga over time, etc.). 
+    In clasele mostenitoare(Pyromancer, Rogue, Knight, Wizard) am implementat functiile de deal damage, specifica oponentului. De asemenea, tot in clasele acestea am implementat si Double Dispatch-ul: cand doi eroi se bat, primul este atacat de al doilea. In alta metoda, apelez functia de deal damage, care primeste ca parametru this(eroul atacat) pentru a stii carei clase ii apartine oponentul si pentru a aplica corect multiplicatorii.
+    De asemenea, fiecarei clasa care extinde Hero i-am implementat metode specifice(functia pentru lovitura critica, calcularea damage-ului pentru a primit deflect de la wizard) si variabile specifice pentru multiplicatori.
+
+MODELAREA JOCULUI:
+    Pentru a simula lupta si miscarea pe harta am folosit o clasa Map. In aceasta retin campul de lupta sub forma unei matrici, fiecare element fiind de tip Unit:
+retine doi campioni care se afla in aceeasi pozitie, si tipul de teren pe care se afla. 
+    La citire setez fiecare unitate cu terenul specific si plasez eroii pe harta.
+    La fiecare runda, initial campionii se deplaseaza(daca nu sunt sub efectul unui stun),iar apoi aplic damage over time pentru fiecare campion care este afectat de acest debuff. Apoi, daca verific care campioni sunt pe aceeasi pozitie si acestia se lupta. Calculez fiecare ce damage ii da celuilalt iar apoi le scad viata cu damage-ul corespunzator. In final, verific daca vreunul a murit si maresc xp-ul.
+
+NOTE: Guys, daca faci level up, xp-ul se reseteaza, nu are sens ca pentru level 1 sa ai nevoie de 200 xp iar pentru celalalte levele sa mai ai nevoie doar de inca 50 xD
+
+

@@ -18,6 +18,8 @@ final class Main {
 
         Map map = new Map(n, m);
 
+        System.out.println("Hello" + map);
+
         for (i = 0; i < n; ++i) {
             c = file.nextWord();
             for (j = 0; j < m; ++j) {

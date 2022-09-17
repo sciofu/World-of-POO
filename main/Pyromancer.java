@@ -10,6 +10,7 @@ public final class Pyromancer extends Hero {
     private float instantDmg, instdotDmg, dotDmg;
 
     public float getInstantDmg() {
+        System.out.println("Getting instant damage");
         return instantDmg;
     }
 
